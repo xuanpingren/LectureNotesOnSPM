@@ -1,0 +1,11 @@
+*.pdf
+*.aux
+*.out
+README
+*.log
+foiltex.*
+*.clo
+*.tex~
+/fig
+sampfoil.tex
+*.def

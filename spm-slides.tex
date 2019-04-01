@@ -1,0 +1,1979 @@
+\documentclass[landscape,30pt]{foils}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage[UTF8]{ctex}
+
+\title{Software Project Management}
+
+\author{} 
+\date{}
+\MyLogo{Copyright \copyright 2018, 2019 Hui Lan}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Syllabus}
+
+\begin{itemize}
+\item Instructor: Hui Lan
+
+\item Email: lanhui AT zjnu.edu.cn
+
+\item Office hours: by appointment
+
+\item Recommended textbook: \\Karl Fogel.  \\
+  Producing Open Source Software - How to Run a Successful Free Software Project.  2017. \\
+  Online at https://producingoss.com/   Most of the course materials are from the textbook.
+
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{fig/oss_cover}
+  \end{center}
+  
+\item  Grading:
+  \begin{itemize}
+  \item Classroom participation - 20\%
+  \item Project home page - 30\% \\
+    {\small We will use your old project (if you have one): {\em Open Access Publishing Service} or {\em  Lab Report Repository}.  Do project {\bf SmartDoc} if you have not done the above two projects. }
+  \item Final Examination - 50\%
+  \end{itemize}
+
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Free and Open-source software}
+
+Free and open-source software are quite prevalent today.  You can access the source code.
+
+Firefox, Emacs, Apache Server.
+
+Free software.  Richard Stallman.  Four Essential Freedoms (run, study, modify, redistribute).  GPLv3  (approved by both FSF and OSI).
+
+Creative Commons Attribution-ShareAlike.  Share.  Remix.  Conditions: Attribution.  Share Alike.
+
+Open-source software.  More practical.  Community driven development model.  https://opensource.org/licenses/category, https://opensource.org/osd
+
+{\tiny
+\begin{verbatim}
+9. License Must Not Restrict Other Software
+
+The license must not place restrictions on other software that is
+ distributed along with the licensed software. For example, the
+ license must not insist that all other programs distributed on the
+ same medium must be open-source software.
+\end{verbatim}
+}
+
+``Given enough eyeballs, all bugs are shallow.''
+
+{\em The two terms describe almost the same category of software, but they
+stand for views based on fundamentally different values. Open source
+is a development methodology; free software is a social movement.  -- Richard Stallman}
+
+Free and open-source.
+
+Philosophical matters.  
+
+Understanding developers' motivations is the best way — in some sense, the only way — to manage a project.
+
+Coercive techniques don't work.  People should feel that their
+connection to a project, and influence over it, is directly
+proportional to their contributions.
+
+Opening up a project can add whole new sets of complexities, and cost
+more in the short term than simply keeping it in-house.  Extra work
+(or pure overhead at first) for the people least familiar with the
+project to get started:
+
+\begin{itemize}
+\item Arrange the code to be comprehensible to complete strangers.
+\item Write development documentation.
+\item Set discussion forums.
+\item Answer questions for potential developers.
+\item Set other collaboration tools.
+\item Set a project home page.
+\item Automate compilation, packaging and installation.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Software Project Management}
+
+Application of management activities - planning, coordinating, measuring, monitoring, controlling, and reporting - to ensure that
+the development and maintenance of software is systematic,  disciplined, and quantified.
+
+dis·ci·plined: showing a controlled form of behavior or way of working.
+
+
+{\em Textbook management looks so easy and real-world project management
+  is in fact so hard.  -- Boehm}
+
+
+You have a plan but you continuously get distracted by additional ``requests''.
+
+\begin{itemize}
+  \item A request to add ``a few small capabilities'' to the product withou changing the budget or
+    schedule.
+  \item A request to take on some personnel who are between projects and find something useful for them to do.
+  \item A request to reduce the scope of design review (in order to make up some schedule).
+\end{itemize}
+
+Should you simply be a nice guy?  No.  You should think carefully
+about the impact of the request.  You should be able to negotiate a
+corresponding change in plans, schedules and budgets.
+
+Steps you can follow.
+
+\begin{enumerate}
+\item Politely say ``No''.
+\item Tell that I am willing to help if I am not too busy.
+\item Analyze the impact of the additional requests on my current schedule.
+\item Ask for more money or time, or both.  (People would usually agree as they have already invested a lot, as long as your counter-requests are reasonable.)
+\end{enumerate}
+
+
+Other things: programmers with various background and various personal goals, programming language, license, development process, infrastructure,  publicizing the project, etc.
+
+
+Shared belief that people can do better together.  The goal of management is to make people continue to believe so.
+
+Deep personal satisfaction from doing one's work in the open, and from appreciating and being appreciated by one's peers.
+
+\begin{itemize}
+\item Set standards for communications.
+\item Make sure useful developers don't get marginalized due to personal idiosyncracies.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Benefits of opening a project}
+
+Significant organizational benefits - let the outside world know what
+you are doing.
+
+Low-cost form of advertisement.
+
+Global influence.
+
+A record of the past activities for future reference.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Choosing a license and applying it}
+
+What is a license?
+
+A student's answer: it provides protection to my project.
+
+Formal definition:  a permit from an authority to own or use something, or do a particular thing.
+
+Two kinds of open-source licenses:  FSF-approved, OSI-approved.  There is a big overlap between the two.
+
+The ``Do Anything'' licenses: MIT-style.
+
+Don't allow proprietary programs to use my code: GPL (the GNU General Public License).
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The nature of software engineering}
+
+{\em Software is hard.  --  Jamie Zawinski}
+
+\begin{itemize}
+\item Complex
+\item Iterative
+\item Creative and cooperative
+\item Changing technology
+\end{itemize}
+
+Common problems in software industry: unrealistic
+requirements/expectations, vague specifications, poor staff
+management, and ignoring user feedback.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Triple constraints for software projects}
+
+Time, Cost and Quality.
+
+
+{\em Defer the activity of detecting and correcting software problems
+until late in the project, i.e., in the “test and validation” phase
+after the code has been developed. There are two main reasons why
+this is a mistake: (1) Most of the errors have already been made
+before coding begins; and (2) The later an error is detected and
+corrected, the more expensive it becomes.  - Barry W. Boehm}
+
+
+The following figure shows ``increase in cost to fix or change software
+throughout life cycle''.
+
+\begin{center}
+\includegraphics[width=0.80\textwidth]{fig/BoehmCurve_real}
+\end{center}
+
+{\bf Important lesson: the longer you wait to detect and correct an error, the more it costs you - by a long shot.}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Aspects of management}
+
+Organisational policy management. Specific organisation-wide procedures for designing, implementing, estimating, tracking and reporting.  Beneficial in the long-term.
+
+Personnel management.   Specific organisation-wide procedures for hiring, training, motivating and promoting people.
+
+Communication management.
+
+Portfolio management.  Having an overall vision not only of the software under development, but also of the software already in use in an organisation.  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Elements of project management}
+
+People, Product, Process, Project.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The people}
+
+The \underline{people factor} is the most important factor in SPM.  Anyhow, we need right people to do the right thing.
+The manager who forgets that SE work is an {\em intensely human endeavor} will never success in project management.
+
+\newpage
+VP1: I guess if you had to pick one thing out that is most important to our environment, I'd say it is not the tools that we use; it is \underline{the people}.
+
+VP2: The most important ingredient that to be success on this project was having \underline{smart people}...very little else matters in my opinion.
+
+VP3: The only rule I have in management is to ensure I have \underline{good people} -- real, good people -- and that I grow good people -- and that I provide an environment in which good people can produce.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{People Capability Maturity Model}
+
+Capability Maturity Model Integration.
+
+A maturity model describes maturity level of an organisation.
+
+Originally called SEI, now called CMMI Institute. CMU (now acquired by ISACA), adopted and funded by U.S. DoD.
+
+Generic, not just for software engineering.
+
+For organisations, for organisations seeking to improve their process,  for appraising/evaluating an organisation's maturity level (1-5).
+
+For people, PCMM is an integrated set of best practices that improves performance and key capabilities for organizations that want to improve their critical people management processes.
+
+\begin{center}
+\includegraphics[width=0.95\textwidth]{fig/PCMM}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.95\textwidth]{fig/P-CMM}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The product}
+
+Define product \underline{objectives} and \underline{scope}.  Consider alternative solutions.
+
+Objectives: overall goals for the product (from the customer's point of view) without considering how these goals will be achieved.
+
+Scope: primary data, functions, behaviours that charaterises and bounds these characteristics in a quantitative manner.
+
+Alternatives: do we have better alternatives, considering the constraints on delivery deadline, budgets, personnel availability, etc. 
+
+%Talk about OMG's SRS.
+
+%SE\_UserRequirementsDocument.
+
+%{\tiny https://lumos-hello.readthedocs-hosted.com/en/latest/}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The process}
+
+Use new and existing processes to move a project forward to success.
+
+Waterfall
+
+\begin{center}
+\includegraphics[width=0.80\textwidth]{fig/waterfall_marsic}
+\end{center}
+
+Prototyping
+
+The spiral model (Boehm)
+
+Agile (popular nowadays)
+
+\begin{center}
+\includegraphics[width=0.80\textwidth]{fig/ExtremeProgramming}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The project}
+
+Projects: 26\% failed, 46\% experienced cost and schedule overruns.
+
+We have to conduct {\em planned} and {\em controlled} software projects.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{PMBOK}
+
+Project Management Body of Knowledge includes the following KAs (knowledge areas):
+
+project integration
+
+project scope
+
+project time
+
+project cost
+
+project quality
+
+project human resource
+
+project communication
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{SWBOK}
+
+A closely related body of knowledge (Software Engineering Body of Knowledge).
+
+\begin{center}
+\includegraphics[width=0.50\textwidth]{fig/swebok_wiki}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Measurement and management}
+
+Management without measurement suggests a lack of rigor.
+
+Measurement without management suggests a lack of purpose or context.
+
+Management and measurement without \underline{expert knowledge} is equally ineffectual.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The top 5 factors found in successful projects}
+
+%{\tiny \texttt{http://www.umsl.edu/_titlt_sauterv/analysis/6840_f03_papers/frese/}}
+\begin{itemize}
+\item \underline{User Involvement}
+\item Executive Management Support
+\item Clear Statement of Requirements
+\item Proper Planning
+\item Realistic Expectations
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The top 5 indicators found in challenged projects}
+
+\begin{itemize}
+\item Lack of \underline{User Input}
+\item Incomplete Requirements \& Specifications
+\item Changing Requirements \& Specifications
+\item Lack of Executive Support
+\item Technical Incompetence
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{All the top factors found in {\em failed} projects}
+
+\begin{itemize}
+\item Incomplete Requirements
+\item Lack of \underline{user involvement}
+\item Lack of Resources
+\item Unrealistic Expectations
+\item Lake of Executive Support
+\item Changing Requirements \& Specifications
+\item  Lack of Planning
+\item  Didn't Need it Any Longer
+\item Lack of IT management
+\item Technical Illiteracy  
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Effort and reward}
+
+When \underline{effort} and \underline{reward} do not correlate reliably, most people will lose faith and stop investing effort.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Form and substance}
+
+Appearances matter.
+
+Form is substance.  E.g., project presentation gives people an {\em immediate first impression}.
+
+Project home page is the first thing (maybe also the last thing) a visitor learns about a project.
+
+Project home pages:
+
+* vim: https://www.vim.org/
+
+* emacs: https://www.gnu.org/software/emacs/
+
+* notepad++: https://notepad-plus-plus.org/
+
+* nano: https://www.nano-editor.org/
+
+How would you describe each look and feel?  ``Your time will not be wasted if you get involved''.
+
+One most important principle to make a project home page: people should have a rough idea where a link goes before clicking on it.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Canned hosting}
+
+Github
+
+Bitbucket
+
+Launchpad
+
+Savannah
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Looking for alternative solutions first}
+
+Maybe not worthwhile to {\em reinvent} wheels.  Instead, add some functionality to the existing ones.
+
+Exceptions: for educational purposes, for very specialised applications, for national security.
+
+Places to look at:
+
+https://github.com/, https://freshcode.club/, https://openhub.net/, https://directory.fsf.org/.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Starting from what you have}
+
+Transforming a private vision into a public vision.
+
+What is obvious to you is not obvious to the world (the newcomers).
+
+What your project is and is not?
+
+Write a mission statement, a README.  Rearrange the code tree so that it conforms to widely accepted standards.  Document the  fundamental architectural assumption.
+
+Code tree: src/, bin/, lib/, etc/, include/, test/, share/, data/, example/, doc/, README, LICENSE, MANUAL, TUTORIAL, FAQ, ...
+
+Doing these every developer already knows is tedious and has no immediate benefit.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Don't have to provide everything at once}
+
+It would be prohibitively time-consuming to do the following:
+
+* A thorough design document
+
+* A complete user manual
+
+* Beautifully and portably packaged code
+
+* Platform independent
+
+However, you should help newcomers to overcome initial obstacle of unfamiliarity.
+
+\underline{Hacktivation energy}: the amount of energy a newcomer must put in before he starts getting something back.
+
+You should lower this energy threshold.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Starting a new project}
+
+{\bf Choose a good name}.   A bad name can slow down adoption of the project.  Manhattan Project. Gutenberg Project. GNU Project. Gnome Project.
+
+Unique.
+
+Easy to remember.
+
+
+Spread your project's name.  Own your project's name in as many of the relevant namespaces, e.g., twitter, IRC channels, github, weibo, ...  The same project name should be available at as many places on the Internet as possible.  Why?  People can easily find you and know how the project is doing.
+
+\begin{itemize}
+\item Internet domain name (a simple URL). For example,  https://www.gnome.org
+\item Twitter handle
+\item Username at github.
+\item Account name at microblog (weibo.com)
+\item IRC (Internet Relay Chat)  irc://irc.gnome.org/gnome
+\end{itemize}
+
+
+{\bf Have a clear mission statement}.  Concrete, limiting and {\em short}.   Should be prominently placed on the front page.   For example, Hadoop (a distributed computing software which is able sort 1TB data on 910 nodes in less than 4 minutes).
+
+https://hadoop.apache.org/
+
+
+\newpage
+{\scriptsize
+\begin{verbatim}
+
+The Apache™ Hadoop® project develops open-source software for
+ reliable, scalable, distributed computing.
+
+The Apache Hadoop software library is a framework that allows for the
+ distributed processing of large data sets across clusters of
+ computers using simple programming models. It is designed to scale up
+ from single servers to thousands of machines, each offering local
+ computation and storage. Rather than rely on hardware to deliver
+ high-availability, the library itself is designed to detect and
+ handle failures at the application layer, so delivering a
+ highly-available service on top of a cluster of computers, each of
+ which may be prone to failures.
+
+\end{verbatim}
+}
+
+You mission statement is mainly aimed at people with some knowledge
+about the related technique.  ``cluster'', ``high-availability''.
+
+{\bf State that the project is free}.  The front page must make it
+\underline{unambiguously} clear that the project is open source.
+
+State that project is ``free and open-source'' and give an example
+license.
+
+Many people forgot to do that.
+
+In extreme cases, the license was not given anywhere on the web site
+at all — the only way to find it was to download the software and look
+at a license file inside.
+
+
+{\tiny
+\begin{verbatim}
+Inkscape license
+================
+
+Most of Inkscape source code is available under the GNU General Public License,
+version 2 or later, with the exception of a few files copied from GIMP, which
+are available under GNU GPL version 3 or later. As such, the complete binaries
+of Inkscape are currently covered by the terms of GNU GPL version 3 or later.
+
+Several standalone libraries contained in Inkscape's source code repository are
+available under GNU Lesser General Public License or the Mozilla Public License.
+
+See the files GPL2.txt and GPL3.txt for the full license text.
+\end{verbatim}
+}
+
+{\bf Demos, screenshots, videos, and example output}.  Show that the software works.  A short video (less than 4 minutes) and {\em say} this video is short.
+
+{\bf Features and requirements list}.
+
+If not completed yet, put ``planned'' or ``in progress''.
+{\tiny
+\begin{verbatim}
+MISSION STATEMENT
+
+To create a full-text indexer and search engine with a rich API, for
+ use by programmers in providing search services for large
+ collections of text files.
+
+
+FEATURES
+
+  Searches plain text, HTML, and XML
+  Word or phrase searching
+ (planned) Fuzzy matching
+ (planned) Incremental updating of indexes
+ (planned) Indexing of remote web sites
+
+REQUIREMENTS
+
+ Python 3.2 or higher
+ Enough disk space to hold the indexes (approximately 2x original data size)
+
+\end{verbatim}
+}
+
+{\bf Development status}.  How is the project doing?  Promise vs. reality.  Are the people there, getting things done? {\em How active} is the project (developed or maintained)?  How activity is the community.  Show News, near-term goals and needs, past releases (with feature lists), timeline of recent releases, bug tracker, discussion forum, mailing list. Examples: https://launchpad.net/drizzle, https://launchpad.net/inkscape, https://launchpad.net/schooltool.
+
+Release notes:  \texttt{http://wiki.inkscape.org/wiki/index.php/Release\_notes}
+
+
+{\bf Development status should always reflect reality}.
+Conservativism pays off in the long run; it's always better for the
+software to be more stable than the user expected than less.  Alpha (first release, with known bugs).  Beta (serious known bugs fixed, asking users for detailed feedback).
+
+{\bf Downloads}.  Downloadable as source code.   Conforming to standard build and installation methods.
+Otherwise: someone visits a web site, downloads the software, tries to build it, fails, gives up and goes away.
+
+{\bf Version control and bug tracker access}. You need a version control repository (e.g., a repo at github).  You also need a bug tracker (visible from the homepage of the project).  The {\em higher} the number of bugs in the database, the {\em better} the project looks.  It indicates the size of user pool and the convenience for reporting bugs.  Things to avoid: (1) no bug database, (2) a nearly empty bug database.
+
+Example: https://git.launchpad.net/inkscape/diff/src/extension/effect.cpp?id=53578d5ced44808d695e0495d244603a63e6292a
+
+{\bf Communication channels}.  Your presence on the list/forum does not imply a commitment to answer all questions or implement all feature requests.
+
+{\bf Developer guidelines}. Basic elements: *  pointers to forums  * instructions on how to report bugs and submit patches  *  some indication of how development is usually done and how decisions are made — is the project a
+benevolent dictatorship, a democracy, or something else.  Example: https://wiki.documentfoundation.org/Development.
+
+{\bf Documentation.}  Maintain FAQs (both online and in the
+distribution). There needs to be something for people to read, even if
+it's rudimentary and incomplete. The most important documentation for
+initial users is the basics: how to quickly set up the software, an
+overview of how it works, perhaps some guides to doing common tasks
+(tutorial).  Plain text, HTML, Markdown, reStructuredText, Read The
+Docs (an online documentation tool at https://readthedocs.org).  Tell the readers the known
+deficiencies, issues.  {\bf Put everything in one page}.
+
+{\bf Developer documentation}.  Developer guidelines tell programmers how to get along with each
+other; developer documentation tells them how to get along with the code itself. 
+
+{\bf Hosting}. A website for users and a website for developers.
+
+{\bf Choosing a license and applying it}. Free software license
+(``FSF-approved''), open source license (``OSI-approved'').  The GNU General Public License (GPL v3).   State the license clearly on the project's front page, and the software itself should include the license (LICENSE or COPYING).
+
+
+{\tiny
+\begin{verbatim}
+    Copyright (C) <2008, 2009, 2013> <name of author>
+    # https://www.gnu.org/philosophy/free-sw.html
+
+    The freedom to run the program as you wish, for any purpose (freedom 0).
+
+    The freedom to study how the program works, and change it so it
+ does your computing as you wish (freedom 1). Access to the source
+ code is a precondition for this.
+
+    The freedom to redistribute copies so you can help others (freedom 2).
+    
+    The freedom to distribute copies of your modified versions to
+ others (freedom 3). By doing this you can give the whole community a
+ chance to benefit from your changes. Access to the source code is a
+ precondition for this.
+
+\end{verbatim}
+}
+
+{\bf Avoid private discussions}. As slow and cumbersome as public discussion can be, it's almost always preferable in the long run. {\em If there's no reason for it to be private, it should be public.}  * The discussion will help train and educate new developers.   *  The discussion will train you in the art of explaining technical issues to people who are not as familiar with the software as you are.   * There are smart people out there to contribute.
+
+{\bf Zero-tolerance policy toward rudeness}.  It is unfortunately very
+easy, and all too typical, for constructive discussions to lapse into
+destructive flame wars.  It's a short distance from calling someone's
+technical proposal stupid to calling the person himself stupid.
+
+``We don't do things that way around here,'' but then move on to the
+real content.
+
+Never, ever insist on an acknowledgment, whether public
+or private, from someone that they behaved inappropriately.
+
+{\bf Codes of Conduct}.
+
+https://www.contributor-covenant.org/version/1/4/code-of-conduct
+
+{\bf Code review}.  IMPORTANT.  Peer review in the open source world.
+Result - software quality.  People do their best work when they know
+that others will take the time to evaluate it.
+
+One could contribute as much to the project by reviewing others'
+changes as by writing new code.
+
+Memory leaks, off-by-one errors, insufficient comments, security vulnerabilities, compliments ...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Be open from day one}
+
+Being open and being closed will affect your ways in
+
+- handling sensitive/confidential data
+
+- wording in code comments
+
+- choosing dependencies 
+
+Note: cleaning up needs extra time and decision-making.  Also, you don't want all issues in your source code to expose suddenly to the public.
+
+``Being open'' means the following things are accessible by the public in day 1:
+
+- The code repository
+
+- Bug tracker
+
+- Design documents
+
+- User documentation
+
+- Wiki
+
+- Developer discussion forums
+
+And your daily work is visible to the public.
+
+\newpage
+``Being open'' does NOT mean
+
+- allowing strangers to check code into your repository
+
+- allowing anyone to file bug reports in your tracker
+
+- reading and responding to every bug report filed, even if you do allow strangers to file
+
+- responding to every question people ask in the forums
+
+- reviewing every patch or suggestion posted, when doing so may cost valuable development time
+
+\underline{Your source code is open, but your time is not open.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Opening a formerly closed project}
+
+Mechanical difficulties you may encounter:
+
+Your code depends on proprietary, platform-dependent libraries. 
+
+Confidential data (e.g., unpublishable comments, passwords or
+site-specific configuration information).
+
+Solutions: open-source libraries, \underline{``top-skim''} version.
+
+Managerial issues (1) make sure everyone in the team understand that a BIG change is coming. (2) make sure that you understand how it's going to feel from their point of view.
+
+- Expose code to strangers.  What if someone points out flaws in the code publicly.
+
+- Strangers don't know the developers so they can make {\bf bold} comments. Criticisms.
+
+- Strangers are not aware of business pressures forced on the developers.
+
+- Lots of questions from strangers suggest inadequate documentation.  Burden of external communications.
+
+Solution: the above discomfort is perfectly normal.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Announcing}
+
+Show your \underline{presentable} work to the world.
+
+Put the announcement on the Project Homepage.
+
+Post the announcement in the appropriate forums.   One post per forum.  General: https://news.ycombinator.com/, https://
+www.reddit.com/r/ subdirectories: opensource, programming, software.  Topic-specific forums: mailing lists. 
+
+Make sure your announcement contain keywords that would help search engines find your project.
+
+Your announcement should be short and to the point.
+
+{\tiny
+\begin{verbatim}
+    To: discuss@some.forum.about.search.indexers
+    Subject: [ANN] Scanley, a new full-text indexer project.
+    Reply-to: dev@scanley.org
+
+    This is a one-time post to announce the creation of the Scanley
+    project, an open source full-text indexer and search engine with a
+    rich API, for use by programmers in providing search services for
+    large collections of text files. Scanley is now running code, is
+    under active development, and is looking for both developers and
+    testers.
+
+    Home page: http://www.scanley.org/
+
+    Features:
+    - Searches plain text, HTML, and XML
+    - Word or phrase searching
+    - (planned) Fuzzy matching
+    - (planned) Incremental updating of indexes
+    - (planned) Indexing of remote web sites
+    - (planned) Long-distance mind-reading
+
+    Requirements:
+    - Python 3.2 or higher
+    - SQLite 3.8.1 or higher
+    For more information, please come find us at scanley.org!
+
+    Thank you,
+    -J. Random
+\end{verbatim}
+}
+
+Running code provides the best foundation for success.
+
+Without running code?  It may also work.  Subversion, Mozilla.   But there has to be something {\bf concrete/tangible}.
+
+You can announce after you made the project open-source.
+
+What you should expect:
+
+- No big impact.
+
+- Some casual inquires.
+
+- A few more people in your mailing list.
+
+Seed.  From project to community.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Why open source?}
+
+How does it compare to open access.  Paywall.
+
+Europe’s open-access drive escalates as university stand-offs spread.  A key driver behind the activity in Europe is the European Commission’s goal that, by 2020, all research will be freely accessible as soon as it is published.  https://www.nature.com/articles/d41586-018-05191-0
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Technical infrastructure}
+
+Brooks' Law - adding manpower to a late software project makes it later. 
+
+Communication complexity is proportional to $n^2$.
+
+We need good information management.  But don't over-automate. The technical infrastructure gives humans easy ways to apply \underline{care}.
+
+Parliamentary procedure -  (Mr. Speaker) keeps some people quiet while others are speaking.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{What a project needs}
+
+Web site - better to separate user-facing from developer-facing. Cross-linked.  https://www.libreoffice.org/
+
+Mailing lists / Message forums
+
+Version control
+% change porting???
+
+Bug tracking
+
+Real-time chat
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Canned hosting}
+
+An online service that offers online collaboration tools needed to run a free software project.
+
+Tools: version control repo, bug tracker,  wiki, mailing list.
+
+Advantages:  (1) server capacity and bandwidth (2) simplicity.
+
+Disadvantages: limited customisation, no fine-grained control.
+ 
+If you are not sure you can do better, just use \underline{canned hosting}.
+
+GitHub - https://github.com
+
+Mailing lists:
+
+https://discourse.org,
+
+https://groups.google.com (*),
+
+http://groupserver.org/,
+
+mailman http://www.list.org (*),  https://mail.python.org/mailman/listinfo/python-dev, https://mail.python.org/mailman/listinfo/flask
+
+Sympa https://www.sympa.org,
+
+dada http://dadamailproject.com
+
+For Mercurial users, check https://en.wikipedia.org/wiki/Comparison\_of\_open\_source\_software\_hosting\_facilities
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Open source hosting}
+
+Should the \underline{hosting itself} be open source?
+
+Fully open source infrastructure: http://phabricator.org, https://gitlab.com
+
+Redmine - a flexible project management web application ** 
+
+As long as you can:
+
+- Interact with project data in automatable ways
+
+- Export the data
+
+It should be fine.  Remember: running open-source hosting code in a production environment can be difficult.  Why? Multiple servers,
+customised networks, dedicated staffs ...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Anonymity and involvement}
+
+You don't want strangers to push changes into your repo, even they are reviewed.
+
+You don't want a inconvenient \underline{involvement bar} preventing quick comments and easy bug reporting.
+
+Make sure read-only actions, bug filing (with proper anti-spam techniques, such as captchas) are allowed for anonymous, non-logged-in visitors.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Mailing lists / message forums}
+
+A small, focused project - the email gateway features of the bug tracker. Issue Ticket.
+
+A large, complex project - a dedicated discussion forum.  Your project should have a \underline{prominently-placed} description of all the available public forums.  See page 43 in the text book for an example.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Choosing the right forum management software}
+
+Both email- and web-based access.
+
+https://mail.vex.net/mailman/listinfo.cgi/alpine
+
+Moderation features. 
+
+Rich administrative interface.  E.g., handling obsolete email addresses.
+
+Header manipulation.
+
+{\tiny
+\begin{verbatim}
+From:...
+
+To: <discuss@lists.example.org>
+
+Subject: [Scanley Discuss] Making the 2.5 release
+
+Date:...
+
+Reply-to:...
+\end{verbatim}
+}
+
+
+Archiving.
+
+https://mail.python.org/pipermail/python-dev/
+  
+SPAM prevention.  Purpose: (1) Avoid your list/forum to be occupied by spam posts.  (2) Avoid your list/forum to be a source of email addresses for spam harvesters.  Measures: (1) Only auto-allow postings from list subscribers. Non-subscribers' posts go to a moderation queue.  (2)  Filter posts through spam-detection software. SPMX.  (3)  Moderation.  Mailing list moderation
+is strictly about keeping the list free of spam, and of wildly off-topic or otherwise inappropriate emails, nothing more. (4) Address-hiding in archives. jrandom@somedomain.com \\to jrandom\_AT\_somedomain.com \\or to jrandomNOSPAM@somedomain.com.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The great Reply-to debate}
+
+Reply-to: discuss@lists.example.org
+
+What if someone sends a confidential, private message to the author when the author sets Reply-to to the list address?
+
+Accidentally sending a private mail to a public list!
+
+% author, reply-to
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Archiving}
+
+Prompt updating (instantaneous, every hour)
+
+Referential stability (keep the same URL)
+
+Thread support
+
+Searchability
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Version (revision) control system}
+
+The core of version control is \underline{change management}: who made which change on which date.
+
+commit - make change to the project.  "I just committed a fix for the server crash bug people have been reporting on Mac OS X. Jay, could you please review the commit and check that I'm not misusing the allocator there?"
+
+push - publish a commit to a publicly online repository.
+
+pull - pull others' changes (commits) into your copy of the project.
+
+commit message or log message -  commentary attached to each commit, describing the nature and purpose of the commit.
+
+repository -  a database in which changes are stored and from which they are published.
+
+clone - obtain one's own development repository by making a copy of the project's central repository.  My fork.
+
+revision or  commit - "Oh yes, she fixed that in revision 10" or "She fixed that in commit fa458b1fac".
+
+diff - textual representation of a change.
+
+tag or snapshot - Release\_1\_0, Delivery\_20130630.
+
+branch - a copy of the project, under version control but isolated so that changes made to the branch don't affect other branches of the project. ``main line'', ``trunk'', ``master'', ``release branch''.
+
+merge - move a change from one branch to another.
+
+conflict - when two people try to make different changes to the same place in the code.  ``resolve'' the conflict.
+
+revert - undo an already-committed change to the software.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Choosing a version control system}
+
+Git and Github.
+
+https://www.mercurial-scm.org
+
+https://subversion.apache.org
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Version everything}
+
+Any piece of information worth writing down is worth versioning \underline{in one place}.
+
+Source code, web pages, documentation, FAQ, design notes.
+
+Don't keep \underline{programmatically generated files} under version control. 
+
+Things that don't change should be archived. For example, emails.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Browsability}
+
+The project's repository should be browsable on the Web. 
+
+Browsability is important because it is a lightweight portal to project data.
+
+Browsability also implies canonical URLs for viewing a particular change.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Use branches to avoid bottlenecks}
+
+Branches are valuable because they turn a scarce resource — working room in the project's code — into an abundant one. 
+
+Copy the castle and add a drawbridge in isolation.
+
+Pull requests and merge.
+
+Isolate and stabalise the release line to the development line.
+
+Use branches liberally.
+
+Most branches should merge their changes back into the main line and disappear, as soon as possible.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Pull requests}
+
+A \underline{pull request} is a request from a contributor to the
+project that a certain change be "pulled" into the project.
+
+Once a contribution arrives, it typically goes through a
+\underline{review-and-revise} process, involving communication between
+the contributor and various members of the project.
+
+The moment when a code change is merged to the project's master branch
+is when it becomes officially part of the project.
+
+
+% Skipped: Singularity of Information
+% Skipped: Authorization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Commit notifications / commit emails}
+
+Every commit to the repository should generate a notification in a subscribable forum/mailing list.
+
+This notification is generated by the version control system.
+
+Who made the change, when they made it, what files and directories changed, and the actual content of the change.
+
+Include the diff, set ``Reply-to'' to the regular development list.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Bug tracker}
+
+https://savannah.gnu.org/bugs/?53986
+
+Bug trackers can track non-bug information, e.g., new feature requests.
+
+The tracker is as much a public face of the project as the repository, mailing lists or web pages.
+
+Other names:  issue trackers, \underline{ticket} trackers, defect trackers, artifact trackers, request trackers.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% wed start here
+\foilhead{Ticket life cycle}
+
+Someone files the ticket.  We got an OPEN ticket.
+
+Others read the ticket, add comments to it, and perhaps ask the original filer for clarification on some points.
+
+The bug gets reproduced.
+
+The bug gets diagnosed.  Assign ownership.  Set priority.
+
+The ticket gets scheduled for resolution.
+
+The bug gets fixed.  The ticket is CLOSED.
+
+Things to notice: not a genuine bug, a duplicate bug.
+
+% This centrality to the life of the project implies a few things about trackers' technical features
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Tracker's interaction with email}
+
+Create new tickets by email.
+
+Add new comments to a ticket by email.
+
+"Subscribe" to a ticket to receive relevant emails.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Pre-filtering the Bug Tracker}
+
+Duplicate or invalid tickets.
+
+Keep the tracker clean by a bug report watcher who \underline{watches} each incoming ticket.
+
+Buddying system.  Get confirmation from another guy ({\em buddy}) first before filing the bug report.  "Did
+you search the bug tracker to see if it's already been reported?"
+
+
+%Omit IRC / Real-Time Chat Systems
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Wikis}
+
+https://www.dokuwiki.org/dokuwiki
+
+https://en.wikipedia.org/wiki/Comparison\_of\_wiki\_software
+
+Click and edit.
+
+Clear page organisation strategy.  A common vision.
+
+Extensive guidance on how to write new entries.  What to avoid.  Dispute resolution process.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Q \& A forums}
+
+https://stackoverflow.com
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \foilhead{Translation infrastructure}
+
+%% https://transifex.com
+
+%% https://translations.launchpad.net
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Social and Political Infrastructure}
+
+How does it work?
+
+What keeps the free software project running, on a day-to-day basis?
+
+How conflicts are resolved?
+
+Who makes the decisions?
+
+Success is \underline{not} only about technical success.
+
+Operational health: ongoing ability to incorporate new code contributions and new developers, and to be responsive to incoming bug reports.
+
+Survivability: ability to exist independently of any individual participant or sponsor.
+
+Governance structure and established procedures well followed by participants.
+
+%meritocracy???
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Fork and forkability}
+
+Take a copy of the source code and use it to start a competing project, known as a \underline{fork}.
+
+Result: no true dictators in free software projects.
+
+Bad decisions would eventually bring about a revolt and a fork.
+
+%by fiat, anointed the BD,  leadership by a charismatic individual
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Benevolent dictators}
+
+One person makes the \underline{final} decisions.
+
+BD - community-approved arbitrator. For example, the founder of a project.
+
+Two things to note: (1) BD usually does not have enough expertise in all areas.  (2) Quality developers won't stay if they could not influence the project's direction.
+
+In case of no consensus and most developers want to move on, a BD would say ``This is the way it's going to be.''
+
+Traits of a good BD.  (1) Self-restraint.  No BD's personal opinions or conclusions in the early discussion so that everyone can speak.  (2) Acknowledge his own bad decisions. (3) Does not need to have the sharpest technical skills.
+
+If the project has an obvious, good candidate BD, then that's the way to go.  Otherwise, use democracy.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Consensus-based democracy}
+
+Group-based governance is more ``evolutionary stable''.
+
+If a group of N people were to give one person with special power, it would mean that N-1 people were each agreeing
+to decrease their individual influence.  People usually don't want to do that.
+
+Discussion and voting (head count).  Identify key issues.  Do approval voting (each voter can vote for as many of the choices on the ballot).   Consensus simply means an agreement that everyone is willing to live with.  Software: https://vote.heliosvoting.org/. Guidelines: https://www.apache.org/foundation/voting.html
+
+Compromise or vote?  Voting ends creative thinking to solve a problem.
+
+We should prevent a premature vote. ``I don't think we are ready for a vote yet''.  Show hands.  Offer a new solution, or a new viewpoint.
+
+Voters do not have to be coders (committers).  People who did valuable contributions to the project can be voters, e.g., people who provide legal help, or organize events, or manage the bug tracker, or write documentation.
+
+The decision to add a new voter should be made secretly.
+
+Implicit consensus. Silence means consent.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Polls}
+
+Ask \underline{all} the subscribers of the project's mailing lists to vote, for example, on user interface choice.
+
+Make sure there is a write-in option (a better option not mentioned in the poll questions). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Vetos}
+
+A veto (-1) can halt a hasty or ill-considered change, at least long enough for everyone to discuss it more.
+
+Any veto should be accompanied by a thorough explanation.
+
+A veto can be overridden if there is a clear majority for moving on.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Consensus approval versus majority approval}
+
+Consensus approval: at least three binding +1 votes and no vetos.
+
+Majority approval: at least three binding +1 votes and more +1 votes than -1 votes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Writing it all down}
+
+At some point, the number of conventions and agreements floating around in your project may become
+so great that you need to record it somewhere, linking to mailing list discussions.
+
+Don't try to be comprehensive.
+
+Base the document on the questions that newcomers ask most often, and on the complaints experienced developers make most often.
+
+Make it clear that the rules can be reconsidered.
+
+Project guidelines:
+
+https://wiki.documentfoundation.org/Development
+
+https://subversion.apache.org/docs/community-guide/
+
+https://www.apache.org/foundation/how-it-works.html
+
+
+% erratum: said to
+% No punctuation before By the time
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Version control means you can relax}
+
+The change can be reverted.
+
+So we can undo the effects of bad or hasty judgment.
+
+But this does not mean we could abuse reversion.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Joining or creating a non-profit organization}
+
+Tax-exempt.  501(c)(3).
+
+Umbrella organizations.
+
+Software Freedom Conservancy https://sfconservancy.org/
+
+** Apache Software Foundation https://apache.org/
+
+\underline{Organizational governance at the Apache Software Foundation}: Membership, Board of Directors, Executive Officers, Corporate Officers, Project Management Committees
+
+https://www.apache.org/foundation/governance/orgchart
+
+%Eclipse Foundation https://eclipse.org/
+
+%Software in the Public Interest http://spi-inc.org/
+
+%Linux Foundation http://collabprojects.linuxfoundation.org/
+
+The organization is there to handle things the developers don't want to handle.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{The Apache Way}
+
+Consensus-based, community driven governance.
+
+Project Management Committees have a high degree of freedom.
+
+Communication is done using mailing lists (asynchronously).  Voice communication is extremely rare.  Why?
+
+Decision-making: ``do-ocracy'' power of those who do: the more you do the more you are allowed to do.  Use lazy consensus (silence means no objection). +1, 0 (no opinion), -1 (need to provide an alternative proposal).
+
+Philosophy
+
+Collaborative software development
+
+Commercial-friendly standard license
+
+Consistently high quality software
+
+Respectful, honest, technical-based interaction
+
+Faithful implementation of standards
+
+Security as a mandatory feature
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Project Management Committees (PMCs)}
+
+https://www.apache.org/foundation/governance/pmcs.html
+
+Manage their projects independently.  Set per-project policies.  Vote on product releases.  Elect new PMC members.
+
+{\bf Committers} (elected based on merit) have write access to the project.
+
+PMC chairs report to the board quarterly about the health and status of their project.
+
+Communications.  (1) private@list for discussing sensitive topics (e.g., personnel matters or inviting new committers). (2) dev@list for discussing about the future of the project.
+
+All project business is conducted on normal public mailing lists.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Review-Then-Commit or Commit-Then-Review}
+
+RTC: change needs consensus approval first.
+
+CTR: make changes at will with the possibility of being retroactively vetoed.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Communications}
+
+Many things to do in a project:
+
+Recruit users and developers
+
+Encourage new contributors to become more deeply involved
+
+Allow free-flowing discussion while still reaching necessary decisions
+
+Maintain a body of knowledge and convention that guides newcomers and experts alike
+
+Produce working software
+
+
+Most important skill: \underline{writing clearly}.
+
+What matters more? Programming skills or communication skills.  I
+
+Is there any correlation between these two sets of skills?
+
+Without good communication skills, how do you convince others to support you?  How do you coordinate people to accomplish a complex task.
+
+How much knowledge can you assume on the part of the reader when you post an answer in a mailing list?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{You are what you write}
+
+People may never see you in person.
+
+But they can guess about your personality through your writing.
+
+``Your image on the Internet comes from what you write, or what others write about you.''
+
+Is your writing lucid, informative?
+
+Is your writing disorganised, illogical?
+
+\underline{Structure and formatting.}   Write in complete sentences, capitalizing the first word of each sentence, and use paragraph breaks where needed.  Book to read: Strunk and White.  The Elements of Style.
+
+\underline{Email}.  Use plain text (not html).  {\em Top-post} or quote the relevant portion of the original text first, followed by your response.  Stay under 80 columns wide for quoted code or error messages.  Write a informative, succinct subject line.
+
+\underline{Content}.  Content is the king.  Make things easy for your readers. Consider the {\em reader-to-writer ratio}. Don't exaggerate (it can hurt your credibility).
+
+{\tiny
+\begin{verbatim}
+Disagreement expression 1
+-------------------------
+Doing it that way would make the code totally unreadable. It'd be a maintenance
+nightmare, compared to J. Random's proposal...
+
+disagreement expression 2
+-------------------------
+That works, but it's less than ideal in terms of readability and maintainability, I think.
+J. Random's proposal avoids those problems because it...
+\end{verbatim}
+}
+
+{\em Reread and edit}.
+
+\underline{Tone}. Terse.   Terseness dose not mean coldness.  Others' feelings matter: unhappy people write worse software.  So we should be careful in choosing words.
+
+\begin{verbatim}
+Can you possibly elaborate a bit more on exactly what problems
+you ran into, etc?
+
+Also:
+What version of Slash are you using? I couldn't tell from your
+original message.
+
+Exactly how did you build the apache/mod_perl source?
+
+Did you try the Apache 2.0 patch that was posted about on
+slashcode.com?
+
+Shane
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Recognizing rudeness}
+
+\underline{What is {\bf not} rude?}
+
+Technical criticism. It indicates people are seriously interested in your work.
+
+Straight questions.  ``Is your computer plugged in?''
+
+\underline{What {\bf is} rude?}
+
+Failure to provide \underline{quality} criticism can be a kind of insult.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Face}
+
+Use a consistent {\em screen name} everywhere: email address, IRC, repository committer name.
+
+That name is your online ``face''.
+
+\begin{verbatim}
+From: "Karl Fogel" <kfogel@whateverdomain.com>
+\end{verbatim}
+
+The real name is {\em real}.
+
+\begin{verbatim}
+From: "Wonder Hacker" <wonderhacker@whateverdomain.com>
+\end{verbatim}
+
+A fantastical online identity never impresses readers.   Maybe you're simply insecure.
+
+Use your real name for all interactions.
+
+Brief signature blocks, or none.  A counter example: page 122 in the textbook.
+
+% TBR:  Avoiding Common Pitfalls
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Common pitfalls}
+
+\underline{You have to respond to everything.}
+
+A response should have a definite purpose.  Think twice before you post (1) what do I want to accomplish? (2) will it not get accomplished unless I say something?
+
+Respond when you see (1) flaws in a proposal (2) miscommunications.
+
+{\bf It's always better to leave people wishing you'd post more than wishing you'd post less.}
+
+\underline{Unproductive threads.}  High noise/signal ratio.  Bad tone.
+
+{\small
+\begin{verbatim}
+This discussion is going nowhere. Can we please drop this topic until someone has a
+patch to implement one of these proposals? There's no reason to keep going around
+and around saying the same things. Code speaks louder than words, folks.
+
+
+Several proposals have been floated in this thread, but none have had all the details
+fleshed out, at least not enough for an up-or-down vote. Yet we're also not saying any-
+thing new now; we're just reiterating what has been said before. So the best thing at
+this point would probably be for further posts to contain either a complete specifica-
+tion for the proposed behavior, or a patch. Then at least we'd have a definite action to
+take (i.e., get consensus on the specification, or apply and test the patch).
+\end{verbatim}
+}
+
+\underline{The smaller the topic, the longer the debate}
+
+{\bf Bikeshed effect}: the amount of discussion is inversely proportional to the complexity of the topic.
+
+{\em Parkinson shows how you can go in to the board of directors and get approval for building a multi-million or even billion dollar atomic power plant, but if you want to build a bike shed you will be tangled up in endless discussions.}
+
+An atomic plant: so vast, so expensive, and so complicated that people cannot grasp.
+
+A bikeshed: everyone knows about it.  No matter how reasonable you are with your proposal, somebody will seize the chance to show
+that he is doing his job, that he is paying attention, that he is here.
+
+\underline{Holy wars}.   Find some way to express sympathy and understanding for the points the other side is making.
+
+\underline{The ``Noisy Minority'' effect}.  The best way to counteract this effect is to point it out very clearly and provide supporting evidence showing how small the actual number of dissenters is, compared to those in agreement.
+
+\underline{Bash competing open source products}. Refrain from giving negative {\em opinions} about competing open source software. One reason: developer overlap.
+
+\underline{Difficult people}.  E.g., a filibuster (obstructionist) who keeps claiming that the matter under discussion is not ready for resolution, and offers more and more possible solutions. Purpose behind: to make everyone else take him seriously.  How to handle? Better just to tolerate it for a while.  Remember: although the other person may be the one behaving destructively, you will be the one who appears destructive if you make a public charge that you can't back up.  If you take action on him, collect examples/evidence first.
+
+\newpage
+A case study of an excessive poster.
+
+{\tiny
+\begin{verbatim}
+From: "Brian W. Fitzpatrick" <fitz@collab.net>
+To: [... recipient list omitted for anonymity ...]
+Subject: The Subversion Energy Sink
+Date: Wed, 12 Nov 2003 23:37:47 -0600
+
+In the last 25 days, the top 6 posters to the svn [dev|users] list have
+been:
+
+294 kfogel@collab.net
+236 "C. Michael Pilato" <cmpilato@collab.net>
+220 "J. Random" <jrandom@problematic-poster.com>
+176 Branko #ibej <brane@xbc.nu>
+130 Philip Martin <philip@codematters.co.uk>
+126 Ben Collins-Sussman <sussman@collab.net>
+
+I would say that five of these people are contributing to Subversion
+hitting 1.0 in the near future.
+
+I would also say that one of these people is consistently drawing time
+and energy from the other 5, not to mention the list as a whole, thus
+(albeit unintentionally) slowing the development of Subversion. I did
+not do a threaded analysis, but vgrepping my Subversion mail spool tells
+me that every mail from this person is responded to at least once by at
+least 2 of the other 5 people on the above list.
+
+I think some sort of radical intervention is necessary here, even if we
+do scare the aforementioned person away. Niceties and kindness have
+already proven to have no effect.
+
+dev@subversion is a mailing list to facilitate development of a version
+control system, not a group therapy session.
+
+-Fitz, attempting to wade through three days of svn mail that he let
+pile up
+\end{verbatim}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Handling growth}
+
+Mailing list (users@, help@, discuss@) - a few thousand users and/or a couple of hundred posts a day.
+
+Imagine Microsoft had a mailing list for Windows.
+
+Strategies: (1) divide into more specific topics. (2) organise information so that it can be easily found.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Conspicuous use of archives}
+
+All communications in an open source project are archived.
+
+Why are archives important?  They provide a basis for discussion.
+
+Search the archive first before you ask a question.
+
+To avoid duplication, if a question has already been answered in the archive, refer to it (e.g., include a link to the archive page)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Treat all resources like archives}
+
+Project information should be at stable, conveniently searchable addresses.
+
+- Direct searchability
+
+- Availability to major Internet search engines
+
+- Browsability
+
+- Referential stability
+
+- Editability 
+
+FAQ: (1) in an HTML page (2) a table of contents (3) name anchors for individual anchors (4) easy to edit and to version.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Codify tradition}
+
+Newcomers to a project face a bigger \underline{acculturation burden} because a huge body
+of \underline{tradition} has accumulated.
+
+Project norms such as coding standards, communications conventions, and other technical minutae.
+
+Watch for patterns in how people get confused and make a guideline.
+
+The guideline should be easily visible.  Formatting of the guideline makes a big difference.  http://subversion.apache.org/reporting-issues.html
+
+Use 'r12908' or 'revision 12980' to refer to a revision.  'r12980' is a better referral method.
+
+Consistency means that everywhere people look, they see the same patterns being followed, and start to follow those patterns
+themselves.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Choose the right forum}
+
+IRC or development mailing list?
+
+IRC: good for quick response, not good for making big decisions as the sample size is small.
+
+Mailing list: more formal. Every interested party will have an opportunity to see and respond
+to the relevant posts, regardless of time zones, schedules.
+
+Switch from the narrow forum (e.g., bug/ticket trackers) to a broader forum for forum appropriateness.
+
+Cross-link between the old forum and the new forum.   Open source is fundamentally a \underline{writer-responsible} culture.
+
+Paste important summaries and/or conclusions from the list discussion back to the ticket.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Announcing releases and other major events}
+
+Where? Front page (brief synopsis), News or Press Releases (details) of your project's website.  Twitter handles.  RSS feeds.  Forums. Mailing list (announce@yourprojectdomain.org).
+
+Make the announcements in all these places at the same time, as nearly as possible.
+
+For a less important event (e.g., next release date), use a daily mailing lists (not the announce list).
+
+{\tiny
+\begin{verbatim}
+Just a progress update: we're planning to release version 2.0 of Scanley in mid-August 2005. 
+You can always check http://www.scanley.org/status.html for updates. 
+The major new feature will be regular-expression searches.
+
+Other new features include: ... There will also be various bugfixes, including: ...
+
+\end{verbatim}
+}
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \foilhead{Announcing security vulnerabilities}
+
+%% Basic guidelines: (1)  Don't talk about the bug publicly until a fix is available; then supply the fix at the same time you an-
+%% nounce the bug. (2)  Come up with that fix as fast as you can.
+
+%% \begin{itemize}
+%% \item Receive the report. A seperate mailing list or contact form for receiving security bug reports. Only ``trusted developers'' can read them.  Make sure the submission is secure (encripted using https or GPG [Gnu Privacy Guard] or PGP [Pretty Good Privacy]).
+%% \item Develop the fix quietly.  Evaluate severity and urgency.   How serious is the vulnerability?   How easy is it to exploit the vulnerability?  Who reported the problem to you? A developer.  \texttt{anonymous14@globalhackerz.net}.   A security professional.  What's the deadline for making the bug public (go-public date)?  \underline{Do not commit the fix to any public repository.}
+%% % exam: if a security bug report comes from one of your team members, then you don't have to fix the bug promptly.
+%% \item CVE (Common Vulnerabilities and Exposures) numbers.  "CVE-2014-0160".  https://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-0160
+%% \end{itemize}
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \foilhead{Common Vulnerability Scoring System}
+
+%% CVSS is developed by the \underline{National Vulnerability Database} at the U.S. National Institute of Standards (NIST).
+
+%% Assign a score to severity of vulnerability.
+
+%% https://nvd.nist.gov/
+
+%% {\tiny
+%% \begin{verbatim}
+%% CVSS v2.0 Ratings           CVSS v3.0 Ratings
+%% Severity Base Score Range   Severity    Base Score Range
+%%                             None        0.0
+%% Low      0.0-3.9            Low         0.1-3.9
+%% Medium   4.0-6.9            Medium      4.0-6.9
+%% High     7.0-10.0           High        7.0-8.9
+%%                             Critical    9.0-10.0
+%% \end{verbatim}
+%% }
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \foilhead{Pre-notification}
+
+%% Once a fix is ready, who should be notified first, average users or well-known online services?
+
+%% \underline{Pre-notification} simply means contacting those administrators privately before the go-public date, telling
+%% them of the vulnerability and how to fix it.
+
+%% The qualification for receiving pre-notification: (1) the recipient must run a large, important service where
+%% a compromise would be a serious matter. (2) the recipient must not leak the security problem before the go-public date. (3) Secure communication.
+
+%% If use email, send the pre-notification individually.  What would happen if we send it to all recipients at once?
+
+%% \newpage
+
+%% {\tiny
+%% \begin{verbatim}
+%% From: Your Name Here
+%% To: admin@large-famous-server.com
+%% Reply-to: Your Name Here (not the security list's address)
+%% Subject: Confidential important notification.
+
+%% [[[ BEGIN ENCRYPTED AND DIGITALLY-SIGNED MAIL ]]]
+
+%% This email is a confidential pre-notification of a security alert
+%% in the Scanley server software.
+%% Please *do not forward* any part of this mail to anyone. The public
+%% announcement is not until May 19th, and we'd like to keep the
+%% information embargoed until then.
+
+%% You are receiving this mail because (we think) you run a Scanley
+%% server, and would want to have it patched before this security hole is
+%% made public on May 19th.
+
+%% References:
+%% ===========
+%% CVE-2017-892346: Scanley stack overflow in queries
+
+%% Vulnerability:
+%% ==============
+%% The server can be made to run arbitrary commands if the server's
+%% locale is misconfigured and the client sends a malformed query.
+
+%% Severity:
+%% =========
+%% CVSSv2 Base Score: 9.0
+%% CVSSv2 Base Vector: AV:N/AC:L/Au:N/C:C/I:C/A:C
+%% (See https://nvd.nist.gov/CVSS/Vector-v2.aspx for how to
+%% interpret these expressions.)
+
+%% Workarounds:
+%% ============
+%% Setting the 'natural-language-processing' option to 'off' in
+%% scanley.conf closes this vulnerability.
+
+%% Patch:
+%% ======
+%% The patch below applies to Scanley 3.0, 3.1, and 3.2.
+%% A new public release (Scanley 3.2.1) will be made on or just before
+%% May 19th, so that it is available at the same time as this
+%% vulnerability is made public. You can patch now, or just wait for
+%% the public release. The only difference between 3.2 and 3.2.1 will
+%% be this patch.
+%% [...patch goes here...]
+
+%% \end{verbatim}
+%% }
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \foilhead{Distribute the fix publicly}
+
+%% In a single, comprehensive announcement, you should describe the problem, give the CVE number if any, describe how to work around it, and how to permanently fix it. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Packaging, Releasing, and Daily Development}
+
+Open source: release and development are in parallel.
+
+What does a new release mean? bug fixed. new bugs introduced. new features added. incompatible changes introduced (e.g., data formats).
+
+Release numbering.   Most important for people who don't follow the project on a daily basis.  be consistent. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Release number components}
+
+Release numbers are groups of digits separated by dots.  For example, Singer 5.11.4.
+
+There is no limit to the number of components, but most projects do not go beyond three or four. 
+
+Descriptive label, e.g., Singer 5.11.4 (Beta).  Other qualifiers, Stable, Unstable, Development, RC (Release Candidate).
+
+a.b.c - a is major number,  b is minor number, and c is micro (patch) number.  Increments in the micro number  are essentially for bug fixes only. Increments in the major are for big changes, new features.   An parity (even/odd) of the minor number indicates the stability.
+
+
+a.b.c.d - d is called build number (incremented every time the software is built).
+
+0.1, 0.2, 0.3 -  initial development
+
+%?? leeway
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Release branch}
+
+A release branch is just a branch in the version control system (see branch), on which the code destined for this release can be isolated from mainline development. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Packaging}
+
+The point of the source package is to unambiguously define the release.
+
+scanley-2.5.0.tar.gz (for Unix-like systems)
+
+scanley-2.5.0.zip (for Windows)
+
+\newpage
+\begin{verbatim}
+  $ ./configure
+  $ make
+  # make install
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Candidate releases}
+
+Many projects prefer to put out release candidates first.  Why?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Signatures and checksums for package tarballs}
+
+scanley-2.5.0.tar.gz
+
+scanley-2.5.0.tar.gz.asc
+
+scanley-2.5.0.tar.gz.md5 (scanley-2.5.0.tar.gz.sha256)
+
+md5sum
+
+\begin{center}
+\includegraphics[width=0.60\textwidth]{fig/CPT-Hashing-File-Transmission.png}
+\end{center}
+
+(from wikipedia)
+
+
+A signature is created using the private key of the signer. The signature is verified using the corresponding public key.
+
+emacs-26.1.tar.xz.sig
+
+{\tiny
+\begin{verbatim}
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEE1AWqLIYsVPF+7mvg6LzXhmr8+XgFAlsL9voACgkQ6LzXhmr8
++Xiv8gf+KwpUcTcrDYW+wcOpn0VtpCVrYZQUoz9WWD0N3zDmlNfk+O+tV9q0vEWF
+gD6aiflkGJ0hM16tV7kqlAkeM6CrZqnfgaVoJFrLQhjaEv9qm1g8Bb21RgZMeZOp
+W+Zoojk9a9UipLlLvfMR9tDP9CEXFls7sXgBpPFiMiQLsKn2B2cv9mkHUp4mfM3t
+J6OISfrdgPSX1QtIe6zZlhJjmIgK1vA7I4Ce4CDuY9HmuqiZowq2h0Vwbcw5AEsa
+5greYvtX+I2f6Uxppm6fdiS2rFaVNm5zTqH1bPvKxLZKlQs9WokJ3lOG/xgH1Wrj
+5pIdAsIIS7wHaqj4jOwDA4IDjoNyVw==
+=fILP
+-----END PGP SIGNATURE-----
+\end{verbatim}
+}
+
+{\tiny
+\begin{verbatim}
+alice% gpg --output doc.sig --detach-sig doc
+
+You need a passphrase to unlock the secret key for
+user: "Alice (Judge) <alice@cyb.org>"
+1024-bit DSA key, ID BB7576AC, created 1999-06-04
+
+Enter passphrase: 
+
+
+blake% gpg --verify doc.sig doc
+gpg: Signature made Fri Jun  4 12:38:46 1999 CDT using DSA key ID BB7576AC
+gpg: Good signature from "Alice (Judge) <alice@cyb.org>"
+
+\end{verbatim}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Managing Participants}
+
+Community and motivation.
+
+Humans have a {\em built-in desire} to work with other humans, and to {\em give and earn respect} through cooperative activities.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Create constructive atmosphere in the community}
+
+\underline{Delegation}.  Ask someone else to take on the task.  Purpose: not just about getting individual tasks done, but also drawing people into a closer commitment to the project.
+
+Make the assignment of a task (ticket) in the form of an inquiry.
+
+{\tiny
+\begin{verbatim}
+    Assigning this over to you, jrandom, because you're most familiar with this code. Feel
+    free to bounce this back if you don't have time to look at it, though. (And let me know
+    if you'd prefer not to receive such requests in the future.)
+\end{verbatim}
+}
+
+\underline{Follow up after you delegate}.
+
+\underline{Notice what people are interested in}.  The more aware you are of what different people want out of the project, the more effectively you can make requests of them.  Demonstrating an understanding of what they want in itself is useful.
+
+\underline{Praise and criticism}.  Both show attention.  Be specific rather than generic.  Both can be diluted by inflation.  Detailed, dispassionate criticism is often taken as a kind of praise.  Most people respond pretty well to criticism that is specific,
+detailed, and contains a clear (even if unspoken) expectation of improvement.
+
+\underline{Prevent territoriality}.  When people sense a "no trespassing" sign, they stay away.  For example, author names.
+
+\underline{The automation ratio}.
+
+\underline{Automated testing}.  Regression testing, regression test suite, regression.  Unit testing, a unit test suite.
+
+% skip: Treat Every User as a Potential Participant
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Share management tasks}
+
+"Manager" does not mean "owner".  {\em Responsibility without monopoly}.  What should we do in case of conflict: two or more people want the same role?
+
+Patch manager. Translation manager.  Documentation manager.  Issue manager.     
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Transitions}
+
+Personal circumstances can change.
+
+{\tiny
+\begin{verbatim}
+> If you wish to replace me with some one else, I will gracefully
+> pass on the role to who comes next. I have one request, which
+> I hope is not unreasonable. I would like to attempt one more
+> release in an effort to prove myself.
+
+I totally understand the desire (been there myself!), but in
+this case, we shouldn't do the "one more try" thing.
+This isn't the first or second release, it's the sixth or
+seventh... And for all of those, I know you've been dissatisfied
+with the results too (because we've talked about it before). So
+we've effectively already been down the one-more-try route.
+Eventually, one of the tries has to be the last one... I think
+[this past release] should be it.
+\end{verbatim}
+}
+
+The most important factor in asking someone to step down is privacy: giving him the space to make a
+decision without feeling like others are watching and waiting.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Committers}
+
+A committer is someone who has commit access: the right to \underline{make changes} to the copy of the code that will be used for the project's next official release.
+
+A committer has the ability to put changes into the {\em master} copy.
+
+There are always many people who feel competent to make changes to a program, and some smaller number who actually are.
+
+How to choose a committer?  The Hippocratic Principle: {\em first, do no harm}.  Good judgment.  Good personality.
+
+If you have 100 committers, 12 of whom make large changes on a regular basis, and the other 88 of whom just fix typos and small bugs a few times a year, that's still better than having only the 12.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Credit}
+
+Credit is the primary currency of the free software world.
+
+Participation in an open source project can indirectly have monetary value, because many employers now look for it on resumés.
+
+When small contributions are acknowledged, people come back to do more.
+
+Keep accurate records of who did what (be specific), when.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Forks}
+
+"Social forks" versus "short forks (hard forks)".
+
+\underline{Handling a fork}.  A social fork is not necessarily a bad thing (e.g., GCC/EGCS fork). Keep calm and remember your long-term goals.  Don't remove someone's commit access in your project just because she decided to work on the fork.
+
+\underline{Initiating a fork}.  {\em Most forks do not succeed, and most projects are not happy to be forked}.  Take all factors into account in evaluating the potential success of your fork.  Line up support privately first, then announce the fork in a non-hostile tone.  Granting all committers of the original project commit access to the fork, including even those who openly disagreed with the need for a fork. 
+
+\end{document}
