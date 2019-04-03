@@ -164,19 +164,7 @@ Global influence.
 A record of the past activities for future reference.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\foilhead{Choosing a license and applying it}
-
-What is a license?
-
-A student's answer: it provides protection to my project.
-
-Formal definition:  a permit from an authority to own or use something, or do a particular thing.
-
-Two kinds of open-source licenses:  FSF-approved, OSI-approved.  There is a big overlap between the two.
-
-The ``Do Anything'' licenses: MIT-style.
-
-Don't allow proprietary programs to use my code: GPL (the GNU General Public License).
+%\foilhead{Choosing a license and applying it}
 
 
 
@@ -608,7 +596,24 @@ software to be more stable than the user expected than less.  Alpha (first relea
 {\bf Downloads}.  Downloadable as source code.   Conforming to standard build and installation methods.
 Otherwise: someone visits a web site, downloads the software, tries to build it, fails, gives up and goes away.
 
-{\bf Version control and bug tracker access}. You need a version control repository (e.g., a repo at github).  You also need a bug tracker (visible from the homepage of the project).  The {\em higher} the number of bugs in the database, the {\em better} the project looks.  It indicates the size of user pool and the convenience for reporting bugs.  Things to avoid: (1) no bug database, (2) a nearly empty bug database.
+{\bf Version control and bug tracker access}.
+
+You need a version control repository (e.g., a repo at github, a repo at savannah).
+
+\begin{itemize}
+\item Create an account at github.  New an empty repo there.
+\item Clone that empty repo to your local machine.  \\
+  \texttt{git clone https://github.com/accountname/reponame.git}.
+\item Inside Git Bash, change directory to that local repo.
+\item After you have added files into that repo, issue the following commands, \texttt{git add .}, \texttt{git commit -m 'message'}, \texttt{git push origin}.
+\end{itemize}
+
+
+You also need a bug tracker (visible from the homepage of the
+project).  For example, Bugzilla.   The {\em higher} the number of bugs in the database, the
+{\em better} the project looks.  It indicates the size of user pool
+and the convenience for reporting bugs.  Things to avoid: (1) no bug
+database, (2) a nearly empty bug database.
 
 Example: https://git.launchpad.net/inkscape/diff/src/extension/effect.cpp?id=53578d5ced44808d695e0495d244603a63e6292a
 
@@ -631,8 +636,31 @@ other; developer documentation tells them how to get along with the code itself.
 
 {\bf Hosting}. A website for users and a website for developers.
 
-{\bf Choosing a license and applying it}. Free software license
-(``FSF-approved''), open source license (``OSI-approved'').  The GNU General Public License (GPL v3).   State the license clearly on the project's front page, and the software itself should include the license (LICENSE or COPYING).
+{\bf Choosing a license and applying it}.
+
+What is a license?
+
+A student's answer: it provides protection to my project.
+
+Formal definition:  a permit from an authority to own or use something, or do a particular thing.
+
+
+Free software license (``FSF-approved''), open source license
+(``OSI-approved'').  The GNU General Public License (GPL v3).
+
+Two kinds of open-source licenses:  FSF-approved, OSI-approved.  There is a big overlap between the two.
+
+The ``Do Anything'' licenses: MIT-style.  Assert nominal copyright and no warranty.
+
+Don't allow proprietary programs to use my code: GPL (the GNU General Public License).
+
+GNU Affero GPL.  For code running in cloud.
+
+
+How to apply a license?  1. State the license clearly on the project's
+front page.  2. Include the license (LICENSE or COPYING) in the
+software distribution itself.  3.  Include a short notice at the top
+of each software source file.
 
 
 {\tiny
