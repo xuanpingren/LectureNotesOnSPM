@@ -29,7 +29,7 @@
 
 \item Recommended textbook: \\Karl Fogel.  \\
   Producing Open Source Software - How to Run a Successful Free Software Project.  2017. \\
-  Online at https://producingoss.com/   Most of the course materials are from the textbook.
+  Online at \url{https://producingoss.com}   Most of the course materials are from the textbook.
 
   \begin{center}
     \includegraphics[width=0.45\textwidth]{fig/oss_cover}
@@ -58,7 +58,11 @@ Free software.  Richard Stallman.  Four Essential Freedoms (run, study, modify, 
 
 Creative Commons Attribution-ShareAlike.  Share.  Remix.  Conditions: Attribution.  Share Alike.
 
-Open-source software.  More practical.  Community driven development model.  https://opensource.org/licenses/category, https://opensource.org/osd
+Open-source software.  More practical.  Community driven development model.
+
+\url{https://opensource.org/licenses/category}
+
+\url{https://opensource.org/osd}
 
 {\tiny
 \begin{verbatim}
@@ -438,7 +442,13 @@ Exceptions: for educational purposes, for very specialised applications, for nat
 
 Places to look at:
 
-https://github.com/, https://freshcode.club/, https://openhub.net/, https://directory.fsf.org/.
+https://github.com
+
+https://freshcode.club
+
+https://openhub.net
+
+https://directory.fsf.org
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -604,9 +614,9 @@ REQUIREMENTS
 \end{verbatim}
 }
 
-{\bf Development status}.  How is the project doing?  Promise vs. reality.  Are the people there, getting things done? {\em How active} is the project (developed or maintained)?  How activity is the community.  Show News, near-term goals and needs, past releases (with feature lists), timeline of recent releases, bug tracker, discussion forum, mailing list. Examples: https://launchpad.net/drizzle, https://launchpad.net/inkscape, https://launchpad.net/schooltool.
+{\bf Development status}.  How is the project doing?  Promise vs. reality.  Are the people there, getting things done? {\em How active} is the project (developed or maintained)?  How activity is the community.  Show News, near-term goals and needs, past releases (with feature lists), timeline of recent releases, bug tracker, discussion forum, mailing list. Examples: \url{https://launchpad.net/drizzle}, \url{https://launchpad.net/inkscape}, \url{https://launchpad.net/schooltool}.
 
-Release notes:  \texttt{http://wiki.inkscape.org/wiki/index.php/Release\_notes}
+Release notes:  \url{http://wiki.inkscape.org/wiki/index.php/Release\_notes}
 
 
 {\bf Development status should always reflect reality}.
@@ -623,7 +633,7 @@ You need a version control repository (e.g., a repo at github, a repo at savanna
 \begin{itemize}
 \item Create an account at github.  New an empty repo there.
 \item Clone that empty repo to your local machine.  \\
-  \texttt{git clone https://github.com/accountname/reponame.git}.
+  \url{git clone https://github.com/accountname/reponame.git}.
 \item Inside Git Bash, change directory to that local repo.
 \item After you have added files into that repo, issue the following commands, \texttt{git add .}, \texttt{git commit -m 'message'}, \texttt{git push origin}.
 \end{itemize}
@@ -635,14 +645,14 @@ in the database, the {\em better} the project looks.  It indicates the
 size of user pool and the convenience for reporting bugs.  Things to
 avoid: (1) no bug database, (2) a nearly empty bug database.
 
-Example: https://git.launchpad.net/inkscape/diff/src/extension/effect.cpp?id=53578d5ced44808d695e0495d244603a63e6292a
+Example: \url{https://git.launchpad.net/inkscape/diff/src/extension/effect.cpp?id=53578d5ced44808d695e0495d244603a63e6292a}
 
 Example: a not initialized variable can cause problems in a new CPU architecture (ARM v7).
 
+\url{http://git.savannah.gnu.org/cgit/nano.git/commit/?id=7ad232d71470cd8c4dc63aeb02f11c9e8df9ecdb&h=master}
 
 {\tiny
 \begin{verbatim}
-http://git.savannah.gnu.org/cgit/nano.git/commit/?id=7ad232d71470cd8c4dc63aeb02f11c9e8df9ecdb&h=master
 
 author	Devin Hussey <husseydevin@gmail.com>	2019-03-28 17:28:47 -0400
 committer	Benno Schulenberg <bensberg@telfort.nl>	2019-03-31 12:57:27 +0200
@@ -689,7 +699,7 @@ index 84e3f68..fd54c16 100644
 {\bf Communication channels}.  Your presence on the list/forum does not imply a commitment to answer all questions or implement all feature requests.
 
 {\bf Developer guidelines}. Basic elements: *  pointers to forums  * instructions on how to report bugs and submit patches  *  some indication of how development is usually done and how decisions are made — is the project a
-benevolent dictatorship, a democracy, or something else.  Example: https://wiki.documentfoundation.org/Development.
+benevolent dictatorship, a democracy, or something else.  Example: \url{https://wiki.documentfoundation.org/Development}.
 
 {\bf Documentation.}  Maintain FAQs (both online and in the
 distribution). There needs to be something for people to read, even if
@@ -697,7 +707,7 @@ it's rudimentary and incomplete. The most important documentation for
 initial users is the basics: how to quickly set up the software, an
 overview of how it works, perhaps some guides to doing common tasks
 (tutorial).  Plain text, HTML, Markdown, reStructuredText, Read The
-Docs (an online documentation tool at https://readthedocs.org).  Tell the readers the known
+Docs (an online documentation tool at \url{https://readthedocs.org}).  Tell the readers the known
 deficiencies, issues.  {\bf Put everything in one page}.
 
 {\bf Developer documentation}.  Developer guidelines tell programmers how to get along with each
@@ -767,7 +777,7 @@ or private, from someone that they behaved inappropriately.
 
 {\bf Codes of Conduct}.
 
-https://www.contributor-covenant.org/version/1/4/code-of-conduct
+\url{https://www.contributor-covenant.org/version/1/4/code-of-conduct}
 
 {\bf Code review}.  IMPORTANT.  Peer review in the open source world.
 Result - software quality.  People do their best work when they know
@@ -853,8 +863,11 @@ Show your \underline{presentable} work to the world.
 
 Put the announcement on the Project Homepage.
 
-Post the announcement in the appropriate forums.   One post per forum.  General: https://news.ycombinator.com/, https://
-www.reddit.com/r/ subdirectories: opensource, programming, software.  Topic-specific forums: mailing lists. 
+Post the announcement in the appropriate forums.   One post per forum.
+
+General: https://news.ycombinator.com/
+
+https://www.reddit.com/r/ subdirectories: opensource, programming, software.  Topic-specific forums: mailing lists. 
 
 Make sure your announcement contain keywords that would help search engines find your project.
 
@@ -914,7 +927,9 @@ Seed.  From project to community.
 
 How does it compare to open access.  Paywall.
 
-Europe’s open-access drive escalates as university stand-offs spread.  A key driver behind the activity in Europe is the European Commission’s goal that, by 2020, all research will be freely accessible as soon as it is published.  https://www.nature.com/articles/d41586-018-05191-0
+Europe’s open-access drive escalates as university stand-offs spread.  A key driver behind the activity in Europe is the European Commission’s goal that, by 2020, all research will be freely accessible as soon as it is published.
+
+\url{https://www.nature.com/articles/d41586-018-05191-0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \foilhead{Technical infrastructure}
@@ -978,7 +993,7 @@ For Mercurial users, check https://en.wikipedia.org/wiki/Comparison\_of\_open\_s
 
 Should the \underline{hosting itself} be open source?
 
-Fully open source infrastructure: http://phabricator.org, https://gitlab.com
+Fully open source infrastructure: \url{http://phabricator.org}, \url{https://gitlab.com}
 
 Redmine - a flexible project management web application ** 
 
