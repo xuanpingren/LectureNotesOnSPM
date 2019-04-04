@@ -456,6 +456,26 @@ Code tree: src/, bin/, lib/, etc/, include/, test/, share/, data/, example/, doc
 
 Doing these every developer already knows is tedious and has no immediate benefit.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\foilhead{Continuous improvement}
+
+While developing a software application is important, improving it is
+more important.
+
+It is hard to develop a software application. But is more harder to
+continuously improve it partly because people like new things and
+partly because people don't have enough motivation to do that.
+
+Your software application is dead in the day when you stop improving
+it.
+
+You software application becomes alive soon after you start improving
+it.
+
+Benno Schulenberg - the Nano Text Editor.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \foilhead{Don't have to provide everything at once}
 
@@ -610,12 +630,61 @@ You need a version control repository (e.g., a repo at github, a repo at savanna
 
 
 You also need a bug tracker (visible from the homepage of the
-project).  For example, Bugzilla.   The {\em higher} the number of bugs in the database, the
-{\em better} the project looks.  It indicates the size of user pool
-and the convenience for reporting bugs.  Things to avoid: (1) no bug
-database, (2) a nearly empty bug database.
+project).  For example, Bugzilla.  The {\em higher} the number of bugs
+in the database, the {\em better} the project looks.  It indicates the
+size of user pool and the convenience for reporting bugs.  Things to
+avoid: (1) no bug database, (2) a nearly empty bug database.
 
 Example: https://git.launchpad.net/inkscape/diff/src/extension/effect.cpp?id=53578d5ced44808d695e0495d244603a63e6292a
+
+Example: a not initialized variable can cause problems in a new CPU architecture (ARM v7).
+
+
+{\tiny
+\begin{verbatim}
+http://git.savannah.gnu.org/cgit/nano.git/commit/?id=7ad232d71470cd8c4dc63aeb02f11c9e8df9ecdb&h=master
+
+author	Devin Hussey <husseydevin@gmail.com>	2019-03-28 17:28:47 -0400
+committer	Benno Schulenberg <bensberg@telfort.nl>	2019-03-31 12:57:27 +0200
+commit	7ad232d71470cd8c4dc63aeb02f11c9e8df9ecdb (patch)
+tree	95aaa66bc0269c68e4ba805821f8883db5ae93ce
+parent	85804ec70db060c21df48d5c2861cc39511559de (diff)
+download	nano-7ad232d71470cd8c4dc63aeb02f11c9e8df9ecdb.tar.gz
+files: initialize a variable before referencing it
+The lack of initialization caused a nasty bug on some targets (such as
+ARMv7) which would make it so that ^S would just say "Cancelled".
+
+While x86 (both 64 and 32 bits) seems to initialize 'response' to zero or
+a positive number, ARM does not, and there is usually a negative value in
+its place, which triggers the 'if (response < 0)' check and, as a result,
+the code says "Cancelled".
+
+This fixes https://savannah.gnu.org/bugs/?56023.
+Reported-by: Devin Hussey <husseydevin@gmail.com>
+
+Bug existed since version 4.0, commit 0f9d60a3.
+
+Signed-off-by: Devin Hussey <husseydevin@gmail.com>
+Diffstat
+-rw-r--r--	src/files.c	2	
+		
+1 files changed, 1 insertions, 1 deletions
+diff --git a/src/files.c b/src/files.c
+index 84e3f68..fd54c16 100644
+--- a/src/files.c
++++ b/src/files.c
+@@ -2101,7 +2101,7 @@ int do_writeout(bool exiting, bool withprompt)
+ 
+ 	while (TRUE) {
+ 		const char *msg;
+-		int response, choice;
++		int response = 0, choice = 0;
+ 		functionptrtype func;
+ #ifndef NANO_TINY
+ 		const char *formatstr, *backupstr;
+\end{verbatim}
+}
+
 
 {\bf Communication channels}.  Your presence on the list/forum does not imply a commitment to answer all questions or implement all feature requests.
 
@@ -654,8 +723,7 @@ The ``Do Anything'' licenses: MIT-style.  Assert nominal copyright and no warran
 
 Don't allow proprietary programs to use my code: GPL (the GNU General Public License).
 
-GNU Affero GPL.  For code running in cloud.
-
+GNU Affero GPL.  With one extra clause compared to GPL.  For code running in cloud.
 
 How to apply a license?  1. State the license clearly on the project's
 front page.  2. Include the license (LICENSE or COPYING) in the
